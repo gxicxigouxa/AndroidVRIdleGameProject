@@ -90,7 +90,13 @@
     <Compile Include="Assets\Game\Event\ObjectGenerator.cs" />
     <Compile Include="Assets\Game\Event\ObjectRemover.cs" />
     <Compile Include="Assets\Game\Game Object\MainObjectScript.cs" />
+    <Compile Include="Assets\Game\Text\GenerateTimeTextScript.cs" />
+    <Compile Include="Assets\Game\Text\MaximumObjectTextScript.cs" />
+    <Compile Include="Assets\Game\Text\ObjectScaleTextScript.cs" />
+    <Compile Include="Assets\Game\Text\RemoveTimeTextScript.cs" />
     <Compile Include="Assets\Game\Text\ScoreTextScript.cs" />
+    <Compile Include="Assets\Game\Text\UnitScoreTextScript.cs" />
+    <Compile Include="Assets\Game\UI\Button\Information\InformationButtonScript.cs" />
     <Compile Include="Assets\Game\UI\Button\Menu\MenuButtonScript.cs" />
     <Compile Include="Assets\Game\UI\Button\Shop\ShopButtonsScript.cs" />
     <Compile Include="Assets\Game\UI\CanvasScript.cs" />
