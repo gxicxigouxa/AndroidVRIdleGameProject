@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -97,10 +91,10 @@
     <Compile Include="Assets\Game\Event\ObjectRemover.cs" />
     <Compile Include="Assets\Game\Game Object\MainObjectScript.cs" />
     <Compile Include="Assets\Game\Text\ScoreTextScript.cs" />
-    <Compile Include="Assets\Game\UI\InformationButtonScript.cs" />
-    <Compile Include="Assets\Game\UI\RankingButtonScript.cs" />
+    <Compile Include="Assets\Game\UI\Button\Menu\MenuButtonScript.cs" />
+    <Compile Include="Assets\Game\UI\Button\Shop\ShopButtonsScript.cs" />
+    <Compile Include="Assets\Game\UI\CanvasScript.cs" />
     <Compile Include="Assets\Game\UI\ReturnButtonScript.cs" />
-    <Compile Include="Assets\Game\UI\ShopButtonScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />

@@ -6,7 +6,9 @@ using System.Collections;
 /// </summary>
 public class MainObjectScript : MonoBehaviour {
   //제거한 Object에 따른 점수.
-  private static int score_;
+  private static int score_ = 0;
+  //한 Object에 대한 단위 점수.
+  private static int unit_score_ = 1;
   //현재 화면에 나타난 Object의 갯수.
   private static int object_count_ = 0;
   //최대 생성 가능한 Object의 갯수.
@@ -27,6 +29,14 @@ public class MainObjectScript : MonoBehaviour {
       return score_;
     } set {
       score_ = value;
+    }
+  }
+
+  public static int UnitScore {
+    get {
+      return unit_score_;
+    } set {
+      unit_score_ = value;
     }
   }
 
