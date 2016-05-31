@@ -89,6 +89,7 @@
     <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
     <Compile Include="Assets\Game\Event\ObjectGenerator.cs" />
     <Compile Include="Assets\Game\Event\ObjectRemover.cs" />
+    <Compile Include="Assets\Game\Event\Vibration.cs" />
     <Compile Include="Assets\Game\Game Object\MainObjectScript.cs" />
     <Compile Include="Assets\Game\Text\GenerateTimeTextScript.cs" />
     <Compile Include="Assets\Game\Text\MaximumObjectTextScript.cs" />

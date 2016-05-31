@@ -16,6 +16,7 @@ public class InformationButtonScript : MonoBehaviour {
 
   //Menu로 되돌아가기
   public void ReturnMenu() {
+    Vibration.Vibrate(50L);
     menu_canvas.SetActive(!menu_canvas.activeSelf);
     information_canvas.SetActive(!information_canvas.activeSelf);
   }

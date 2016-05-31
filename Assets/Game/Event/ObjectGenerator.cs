@@ -44,8 +44,8 @@ public class ObjectGenerator : MonoBehaviour {
   void GenerateObject() {
     if (MainObjectScript.ObjectCount < MainObjectScript.MaxObject) {
       //main_object를 복제.
-      Instantiate(main_object);
-      main_object.transform.localScale += new Vector3(0.01F * object_scale_count_,
+      GameObject new_object = Instantiate(main_object);
+      new_object.transform.localScale += new Vector3(0.01F * object_scale_count_,
                                                       0.01F * object_scale_count_,
                                                       0.01F * object_scale_count_);
       //x, z좌표 설정.
@@ -61,7 +61,7 @@ public class ObjectGenerator : MonoBehaviour {
                                                        position_z * position_z)
                                                        / Mathf.Sqrt(3.0F));
       //결정된 좌표들을 이용해 이동.
-      main_object.transform.position = new Vector3(position_x, position_y,
+      new_object.transform.position = new Vector3(position_x, position_y,
                                                    position_z);
       MainObjectScript.IncreaseObjectCount();
     }

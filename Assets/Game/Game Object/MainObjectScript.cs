@@ -12,7 +12,7 @@ public class MainObjectScript : MonoBehaviour {
   //현재 화면에 나타난 Object의 갯수.
   private static int object_count_ = 0;
   //최대 생성 가능한 Object의 갯수.
-  private static int max_object_ = 512;
+  private static int max_object_ = 10;
 
   // Use this for initialization
   void Start() {

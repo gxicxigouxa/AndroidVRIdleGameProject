@@ -6,7 +6,7 @@ using System.Collections;
 /// Object를 바라보고 있을 때의 동작을 처리하도록 작성.
 /// </summary>
 public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
-  private static float remove_time_ = 0.3F;
+  private static float remove_time_ = 0.5F;
 
   // Use this for initialization
   void Start() {
