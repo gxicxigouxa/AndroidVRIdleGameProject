@@ -6,19 +6,23 @@ using System.Collections;
 /// Playing Time Text에 대한 Script.
 /// </summary>
 public class PlayingTimeTextScript : MonoBehaviour {
+  /// <summary>
+  /// 시간에 대한 정보를 나타내기 위한 Class.
+  /// </summary>
   private class SimpleTime {
+    //매개 변수로 전달받은 float형을 parsing하여 일, 시, 분, 초로 나누어 저장.
     public SimpleTime(float time_float) {
-      ulong current_time = (ulong)time_float;
+      long current_time = (long)time_float;
       second_ = (byte)(current_time % 60);
       current_time /= 60;
       minute_ = (byte)(current_time % 60);
       current_time /= 60;
       hour_ = (byte)(current_time % 24);
       current_time /= 24;
-      day_ = (uint)current_time;
+      day_ = (int)current_time;
     }
 
-    public uint Day {
+    public int Day {
       get {
         return day_;
       }
@@ -42,7 +46,7 @@ public class PlayingTimeTextScript : MonoBehaviour {
       }
     }
 
-    private uint day_ = 0;
+    private int day_ = 0;
     private byte hour_ = 0, minute_ = 0, second_ = 0;
   }
 

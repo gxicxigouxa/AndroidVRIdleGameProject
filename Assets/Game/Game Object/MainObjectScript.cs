@@ -7,14 +7,14 @@ using System.Collections.Generic;
 /// </summary>
 public class MainObjectScript : MonoBehaviour {
   //제거한 Object에 따른 점수.
-  private static ulong score_ = 0;
+  private static long score_ = 0;
   //한 Object에 대한 단위 점수.
-  private static uint unit_score_ = 1;
+  private static int unit_score_ = 1;
   //현재 화면에 나타난 Object의 갯수.
-  private static uint object_count_ = 0;
+  private static int object_count_ = 0;
   //최대 생성 가능한 Object의 갯수.
-  private static uint max_object_ = 10;
-  //object를 저장하기 위한 ArrayList;
+  private static int max_object_ = 10;
+  //object를 저장하기 위한 HashSet;
   private static HashSet<GameObject> game_objects_ = new HashSet<GameObject>();
   // Use this for initialization
   void Start() {
@@ -27,7 +27,7 @@ public class MainObjectScript : MonoBehaviour {
 
   }
 
-  public static ulong Score {
+  public static long Score {
     get {
       return score_;
     } set {
@@ -35,7 +35,7 @@ public class MainObjectScript : MonoBehaviour {
     }
   }
 
-  public static uint UnitScore {
+  public static int UnitScore {
     get {
       return unit_score_;
     } set {
@@ -43,7 +43,7 @@ public class MainObjectScript : MonoBehaviour {
     }
   }
 
-  public static uint ObjectCount {
+  public static int ObjectCount {
     get {
       return object_count_;
     } set {
@@ -51,7 +51,7 @@ public class MainObjectScript : MonoBehaviour {
     }
   }
 
-  public static uint MaxObject {
+  public static int MaxObject {
     get {
       return max_object_;
     } set {
