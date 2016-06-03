@@ -71,12 +71,23 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
      <Compile Include="Assets\Game\Event\ObjectGenerator.cs" />
      <Compile Include="Assets\Game\Event\ObjectRemover.cs" />
+     <Compile Include="Assets\Game\Event\Vibration.cs" />
      <Compile Include="Assets\Game\Game Object\MainObjectScript.cs" />
+     <Compile Include="Assets\Game\SQLite\DBmanager.cs" />
+     <Compile Include="Assets\Game\Text\CurrentObjectCountTextScript.cs" />
+     <Compile Include="Assets\Game\Text\GenerateTimeTextScript.cs" />
+     <Compile Include="Assets\Game\Text\MaximumObjectTextScript.cs" />
+     <Compile Include="Assets\Game\Text\ObjectScaleTextScript.cs" />
+     <Compile Include="Assets\Game\Text\PlayingTimeTextScript.cs" />
+     <Compile Include="Assets\Game\Text\RemoveTimeTextScript.cs" />
      <Compile Include="Assets\Game\Text\ScoreTextScript.cs" />
-     <Compile Include="Assets\Game\UI\InformationButtonScript.cs" />
-     <Compile Include="Assets\Game\UI\RankingButtonScript.cs" />
-     <Compile Include="Assets\Game\UI\ReturnButtonScript.cs" />
-     <Compile Include="Assets\Game\UI\ShopButtonScript.cs" />
+     <Compile Include="Assets\Game\Text\UnitScoreTextScript.cs" />
+     <Compile Include="Assets\Game\UI\Button\Information\InformationButtonScript.cs" />
+     <Compile Include="Assets\Game\UI\Button\Menu\MenuButtonScript.cs" />
+     <Compile Include="Assets\Game\UI\Button\Message\MessageButtonScript.cs" />
+     <Compile Include="Assets\Game\UI\Button\Shop\ShopButtonsScript.cs" />
+     <Compile Include="Assets\Game\UI\CanvasScript.cs" />
+     <Compile Include="Assets\dbAccess.cs" />
      <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
      <None Include="Assets\Cardboard\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
@@ -87,6 +98,27 @@
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/Mono.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data.Sqlite">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data.SqliteClient">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Configuration">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.Configuration.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Data">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="System.EnterpriseServices">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.EnterpriseServices.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.Security.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

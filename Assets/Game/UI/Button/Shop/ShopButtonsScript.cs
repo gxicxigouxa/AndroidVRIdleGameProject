@@ -35,6 +35,8 @@ public class ShopButtonsScript : MonoBehaviour {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);
     }
+        DBmanager.storeUnitScore();
+        DBmanager.storeScore();
   }
 
   //Object의 최대 생성 갯수를 1 증가.
@@ -47,7 +49,9 @@ public class ShopButtonsScript : MonoBehaviour {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);
     }
-  }
+        DBmanager.storeMaxObject();
+        DBmanager.storeScore();
+    }
 
   //Object의 제거 시간을 0.01 감소.
   public void ReduceRemoveTime() {
@@ -59,7 +63,9 @@ public class ShopButtonsScript : MonoBehaviour {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);
     }
-  }
+        DBmanager.storeRemoveTime();
+        DBmanager.storeScore();
+    }
 
   //Object의 생성 시간을 0.01 감소.
   public void ReduceGenerateTime() {
@@ -71,7 +77,9 @@ public class ShopButtonsScript : MonoBehaviour {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);
     }
-  }
+        DBmanager.storeGenerateDelay();
+        DBmanager.storeScore();
+    }
 
   //Object 생성 시 크기에 대한 count를 1 증가.
   public void IncreaseObjectScale() {
@@ -83,7 +91,9 @@ public class ShopButtonsScript : MonoBehaviour {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);
     }
-  }
+        DBmanager.storeScale();
+        DBmanager.storeScore();
+    }
 
   public void RemoveAllObjects() {
     Vibration.Vibrate(100L);
@@ -94,7 +104,8 @@ public class ShopButtonsScript : MonoBehaviour {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);
     }
-  }
+        DBmanager.storeScore();
+    }
 
   //Menu로 되돌아가기.
   public void ReturnMenu() {

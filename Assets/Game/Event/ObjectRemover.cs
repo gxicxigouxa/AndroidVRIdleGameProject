@@ -34,6 +34,7 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
     Destroy(gameObject);
     MainObjectScript.ObjectCount -= 1;
     MainObjectScript.Score += MainObjectScript.UnitScore;
+       DBmanager.storeScore();
   }
 
   //호출 시 모든 Object 제거.

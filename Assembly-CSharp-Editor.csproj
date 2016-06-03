@@ -45,14 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Cardboard\Editor\CardboardAudioListenerEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardAudioRoomEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardAudioSourceEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardGazeEditor.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardMenu.cs" />
-     <Compile Include="Assets\Cardboard\Editor\CardboardSetup.cs" />
-     <Compile Include="Assets\Cardboard\Editor\StereoControllerEditor.cs" />
+     <Compile Include="Assets\Game\Scene\Editor\CardboardAudioListenerEditor.cs" />
+     <Compile Include="Assets\Game\Scene\Editor\CardboardAudioRoomEditor.cs" />
+     <Compile Include="Assets\Game\Scene\Editor\CardboardAudioSourceEditor.cs" />
+     <Compile Include="Assets\Game\Scene\Editor\CardboardEditor.cs" />
+     <Compile Include="Assets\Game\Scene\Editor\CardboardGazeEditor.cs" />
+     <Compile Include="Assets\Game\Scene\Editor\CardboardMenu.cs" />
+     <Compile Include="Assets\Game\Scene\Editor\CardboardSetup.cs" />
+     <Compile Include="Assets\Game\Scene\Editor\StereoControllerEditor.cs" />
      <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
      <None Include="Assets\Cardboard\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
@@ -81,6 +81,27 @@
  </Reference>
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/Mono.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data.Sqlite">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data.SqliteClient">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Configuration">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.Configuration.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Data">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="System.EnterpriseServices">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.EnterpriseServices.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.Security.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>D:/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
