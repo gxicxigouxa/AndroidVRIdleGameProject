@@ -12,15 +12,19 @@ public class ObjectGenerator : MonoBehaviour {
   private static float generate_delay_ = 1.0F;
   //Object의 크기 증가에 대한 count.
   private static int object_scale_count_ = 0;
+  private float current_generate_delay_ = generate_delay_;
 
   // Use this for initialization
   void Start() {
-    //호출된 직후 GenerateObject 함수 generate_delay_의 주기로 반복 호출.
-    InvokeRepeating("GenerateObject", 0, generate_delay_);
+
   }
 
   void Update() {
-
+    current_generate_delay_ -= Time.deltaTime;
+    if (current_generate_delay_ <= 0) {
+      GenerateObject();
+      current_generate_delay_ = generate_delay_;
+    }
   }
 
   public static float GenerateDelay {
@@ -41,7 +45,7 @@ public class ObjectGenerator : MonoBehaviour {
     }
   }
 
-  void GenerateObject() {
+  public void GenerateObject() {
     if (MainObjectScript.ObjectCount < MainObjectScript.MaxObject) {
       //main_object를 복제.
       GameObject new_object = Instantiate(main_object);
@@ -63,8 +67,9 @@ public class ObjectGenerator : MonoBehaviour {
       //결정된 좌표들을 이용해 이동.
       new_object.transform.position = new Vector3(position_x, position_y,
                                                    position_z);
-      MainObjectScript.IncreaseObjectCount();
+      //Object set에 추가.
+      MainObjectScript.GameObjects.Add(new_object);
+      MainObjectScript.ObjectCount += 1;
     }
   }
-
 }

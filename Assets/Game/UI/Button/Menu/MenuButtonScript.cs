@@ -17,28 +17,28 @@ public class MenuButtonScript : MonoBehaviour {
 
   //menu_canvas와 shop_canvas의 active 전환.
   public void OpenShop() {
-    Vibration.Vibrate(50L);
+    Vibration.Vibrate(100L);
     menu_canvas.SetActive(!menu_canvas.activeSelf);
     shop_canvas.SetActive(!shop_canvas.activeSelf);
   }
 
   //menu_canvas와 information_canvas의 active 전환.
   public void OpenInformation() {
-    Vibration.Vibrate(50L);
+    Vibration.Vibrate(100L);
     menu_canvas.SetActive(!menu_canvas.activeSelf);
     information_canvas.SetActive(!information_canvas.activeSelf);
   }
 
   //menu_canvas와 ranking_canvas의 active 전환.
   public void OpenRanking() {
-    Vibration.Vibrate(50L);
+    Vibration.Vibrate(100L);
     menu_canvas.SetActive(!menu_canvas.activeSelf);
     ranking_canvas.SetActive(!ranking_canvas.activeSelf);
   }
 
   //게임 종료.
   public void ExitGame() {
-    Vibration.Vibrate(50L);
+    Vibration.Vibrate(100L);
     Application.Quit();
   }
 }

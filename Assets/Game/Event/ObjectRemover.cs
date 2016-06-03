@@ -30,14 +30,26 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
   //Object 제거 함수.
   public void RemoveObject() {
     //gameObject를 없앤다.
+    MainObjectScript.GameObjects.Remove(gameObject);
     Destroy(gameObject);
-    MainObjectScript.DecreaseObjectCount();
+    MainObjectScript.ObjectCount -= 1;
     MainObjectScript.Score += MainObjectScript.UnitScore;
+  }
+
+  //호출 시 모든 Object 제거.
+  public static void RemoveAllObjects() {
+    uint number_of_object = (uint)MainObjectScript.GameObjects.Count;
+    foreach (GameObject current_object in MainObjectScript.GameObjects) {
+      Destroy(current_object);
+    }
+    MainObjectScript.ObjectCount = 0;
+    MainObjectScript.Score += MainObjectScript.UnitScore * number_of_object;
+    MainObjectScript.GameObjects.Clear();
   }
 
   //Object를 바라보고 있을 때의 동작.
   public void OnGazeEnter() {
-    //RemoveObject 함수를 0.2초 후에 호출.
+    //RemoveObject 함수를 remove_time_초 후에 호출.
     Invoke("RemoveObject", remove_time_);
   }
 
