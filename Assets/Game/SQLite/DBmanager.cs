@@ -196,20 +196,24 @@ public class DBmanager : MonoBehaviour {
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
+                int temp = PlayingTimeTextScript.Day + PlayingTimeTextScript.playDay;
 
-                string query = "UPDATE infomation SET day = " + PlayingTimeTextScript.Day;
+                string query = "UPDATE infomation SET day = " + temp;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                query = "UPDATE infomation SET hour = " + PlayingTimeTextScript.Hour;
+                temp = PlayingTimeTextScript.Hour + PlayingTimeTextScript.playHour;
+                query = "UPDATE infomation SET hour = " + temp;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                query = "UPDATE infomation SET minute = " + PlayingTimeTextScript.Minute;
+                temp = PlayingTimeTextScript.Minute + PlayingTimeTextScript.playMinute;
+                query = "UPDATE infomation SET minute = " + temp;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                query = "UPDATE infomation SET second = " + PlayingTimeTextScript.Second;
+                temp = PlayingTimeTextScript.Second + PlayingTimeTextScript.playSecond;
+                query = "UPDATE infomation SET second = " + temp;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 

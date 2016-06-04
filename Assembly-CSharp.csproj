@@ -78,6 +78,7 @@
      <Compile Include="Assets\Game\Text\GenerateTimeTextScript.cs" />
      <Compile Include="Assets\Game\Text\MaximumObjectTextScript.cs" />
      <Compile Include="Assets\Game\Text\ObjectScaleTextScript.cs" />
+     <Compile Include="Assets\Game\Text\PlayingTimeCaller.cs" />
      <Compile Include="Assets\Game\Text\PlayingTimeTextScript.cs" />
      <Compile Include="Assets\Game\Text\RemoveTimeTextScript.cs" />
      <Compile Include="Assets\Game\Text\ScoreTextScript.cs" />

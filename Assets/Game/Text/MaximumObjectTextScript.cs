@@ -14,7 +14,7 @@ public class MaximumObjectTextScript : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    TextUpdate();
+        TextUpdate();
   }
 
   //Text의 내용 Update.
