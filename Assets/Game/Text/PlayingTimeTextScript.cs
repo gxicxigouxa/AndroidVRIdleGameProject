@@ -9,20 +9,8 @@ public class PlayingTimeTextScript : MonoBehaviour {
   /// <summary>
   /// 시간에 대한 정보를 나타내기 위한 Class.
   /// </summary>
-  public class SimpleTime {
-    //매개 변수로 전달받은 float형을 parsing하여 일, 시, 분, 초로 나누어 저장.
-    public SimpleTime(float time_float) {
-      long current_time = (long)time_float;
-      second_ = (int)(current_time % 60);
-      current_time /= 60;
-      minute_ = (int)(current_time % 60);
-      current_time /= 60;
-      hour_ = (int)(current_time % 24);
-      current_time /= 24;
-      day_ = (int)current_time;
-    }
 
-    public int Day {
+    public static int Day {
       get {
         return day_;
       } set {
@@ -30,7 +18,7 @@ public class PlayingTimeTextScript : MonoBehaviour {
     }
     }
 
-    public int Hour {
+    public static int Hour {
       get {
         return hour_;
       }set {
@@ -38,7 +26,7 @@ public class PlayingTimeTextScript : MonoBehaviour {
     }
     }
 
-    public int Minute {
+    public static int Minute {
       get {
         return minute_;
       }set {
@@ -46,7 +34,7 @@ public class PlayingTimeTextScript : MonoBehaviour {
     }
     }
 
-    public int Second {
+    public static int Second {
       get {
         return second_;
       }set {
@@ -56,12 +44,11 @@ public class PlayingTimeTextScript : MonoBehaviour {
 
     private static int day_ = 0;
     private static int hour_ = 0, minute_ = 0, second_ = 0;
-  }
-
-  // Use this for initialization
-  void Start() {
-
-  }
+        private static int ms = 0;
+  
+    // Use this for initialization
+    void Start() {
+    }
 
   // Update is called once per frame
   void Update() {
@@ -70,10 +57,33 @@ public class PlayingTimeTextScript : MonoBehaviour {
 
   //Text의 내용 Update.
   public void TextUpdate() {
-    SimpleTime current_time = new SimpleTime(Time.realtimeSinceStartup);
-    GetComponent<Text>().text = "플레이 시간 : \n" + current_time.Day + "일 " +
-                                 current_time.Hour + "시간 " +
-                                 current_time.Minute + "분 " +
-                                 current_time.Second + "초";
+    
+    GetComponent<Text>().text = "플레이 시간 : \n" + Day + "일 " +
+                                 Hour + "시간 " +
+                                 Minute + "분 " +
+                                 Second + "초";
+        ms += 1;
+        if ( ms >= 100 )
+        {
+            Second++;
+            ms = 0;
+        }
+        if ( Second >= 60)
+        {
+            Minute++;
+            Second = 0;
+        }
+        if ( Minute >= 60)
+        {
+            Hour++;
+            Minute = 0;
+        }
+        if ( Hour >= 24)
+        {
+            Day++;
+            Hour = 0;
+        }
+        ms++;
+        DBmanager.storeDate();
   }
 }

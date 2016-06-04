@@ -74,6 +74,10 @@ public class DBmanager : MonoBehaviour {
                     ObjectGenerator.GenerateDelay = reader.GetFloat(4);
                     ObjectRemover.RemoveTime = reader.GetFloat(5);
                     ObjectGenerator.ObjectScaleCount = reader.GetInt32(6);
+                    PlayingTimeTextScript.Day = reader.GetInt32(7);
+                    PlayingTimeTextScript.Hour = reader.GetInt32(8);
+                    PlayingTimeTextScript.Minute = reader.GetInt32(9);
+                    PlayingTimeTextScript.Second = reader.GetInt32(10);
                     reader.Close();
                     dbConnection.Close();
                 }
@@ -181,5 +185,38 @@ public class DBmanager : MonoBehaviour {
                 dbConnection.Close();
             }
         }
+
+    }
+
+    public static void storeDate()
+    {
+        using (IDbConnection dbConnection = new SqliteConnection(connectionString))
+        {
+            dbConnection.Open();
+
+            using (IDbCommand dbCmd = dbConnection.CreateCommand())
+            {
+
+                string query = "UPDATE infomation SET day = " + PlayingTimeTextScript.Day;
+                dbCmd.CommandText = query;
+                dbCmd.ExecuteNonQuery();
+
+                query = "UPDATE infomation SET hour = " + PlayingTimeTextScript.Hour;
+                dbCmd.CommandText = query;
+                dbCmd.ExecuteNonQuery();
+
+                query = "UPDATE infomation SET minute = " + PlayingTimeTextScript.Minute;
+                dbCmd.CommandText = query;
+                dbCmd.ExecuteNonQuery();
+
+                query = "UPDATE infomation SET second = " + PlayingTimeTextScript.Second;
+                dbCmd.CommandText = query;
+                dbCmd.ExecuteNonQuery();
+
+
+                dbConnection.Close();
+            }
+        }
+
     }
 }
