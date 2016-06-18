@@ -78,6 +78,7 @@ public class PlayingTimeTextScript : MonoBehaviour {
     private static int playMinute_ = 0;
     private static int playSecond_ = 0;
 
+    private static int counter = 0;
 
     private static float playTime = 0.0F;
     // Use this for initialization
@@ -86,13 +87,16 @@ public class PlayingTimeTextScript : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-        TextUpdate();
+        counter++;
+        if (counter >= 60)
+        {
+            TextUpdate();
+            counter = 0;
+        }
   }
 
   //Text의 내용 Update.
   public void TextUpdate() {
-    
-    
 
         playTime = Time.realtimeSinceStartup;
 
@@ -108,6 +112,7 @@ public class PlayingTimeTextScript : MonoBehaviour {
         int tempHour = Hour + playHour;
         int tempMinute = Minute + playMinute;
         int tempSecond = Second + playSecond;
+
 
 
         if (tempSecond >= 60)
@@ -132,10 +137,6 @@ public class PlayingTimeTextScript : MonoBehaviour {
                                  tempMinute + "분 " +
                                  tempSecond + "초";
 
-        
-        
-        
-
-        DBmanager.storeDate();
+        DBmanager.storeDate(tempDay , tempHour, tempMinute, tempSecond);
   }
 }

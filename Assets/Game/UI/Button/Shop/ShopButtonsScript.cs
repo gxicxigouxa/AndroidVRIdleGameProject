@@ -11,7 +11,8 @@ public class ShopButtonsScript : MonoBehaviour {
   //각종 Item의 구매 비용.
   private int price_of_increase_obtain_score_ = 1;
   private int price_of_increase_maximum_object_ = 1;
-  private int price_of_reduce_remove_time_ = 1;
+  //private int price_of_reduce_remove_time_ = 1;
+  private int price_of_increase_damage_ = 1;
   private int price_of_reduce_generate_time_ = 1;
   private int price_of_increase_object_scale_ = 1;
   private int price_of_remove_all_objects_ = 1;
@@ -54,6 +55,7 @@ public class ShopButtonsScript : MonoBehaviour {
     }
 
   //Object의 제거 시간을 0.01 감소.
+  /*
   public void ReduceRemoveTime() {
     Vibration.Vibrate(100L);
     if (IsCanPurchase(price_of_reduce_remove_time_)) {
@@ -66,6 +68,19 @@ public class ShopButtonsScript : MonoBehaviour {
         DBmanager.storeRemoveTime();
         DBmanager.storeScore();
     }
+    */
+
+  //Object 공격 시 피해량을 1 증가.
+  public void IncreaseDamage() {
+    Vibration.Vibrate(100L);
+    if (IsCanPurchase(price_of_increase_damage_)) {
+      MainObjectScript.Score -= price_of_increase_damage_;
+      ObjectRemover.Damage += 1;
+    } else {
+      message_canvas.SetActive(!message_canvas.activeSelf);
+      shop_canvas.SetActive(!shop_canvas.activeSelf);
+    }
+  }
 
   //Object의 생성 시간을 0.01 감소.
   public void ReduceGenerateTime() {

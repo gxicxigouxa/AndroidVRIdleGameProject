@@ -91,6 +91,51 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.EditorTestsRunner">
+      <HintPath>Library\UnityAssemblies\UnityEditor.EditorTestsRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data">
+      <HintPath>Assets\Plugins\Mono.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>Assets\Plugins\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.SqliteClient">
+      <HintPath>Assets\Plugins\Mono.Data.SqliteClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <HintPath>Assets\Plugins\System.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Assets\Plugins\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <HintPath>Assets\Plugins\System.EnterpriseServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security">
+      <HintPath>Assets\Plugins\System.Security.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity-Term-Project.CSharp.csproj">
@@ -99,14 +144,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Cardboard\Editor\CardboardAudioListenerEditor.cs" />
-    <Compile Include="Assets\Cardboard\Editor\CardboardAudioRoomEditor.cs" />
-    <Compile Include="Assets\Cardboard\Editor\CardboardAudioSourceEditor.cs" />
-    <Compile Include="Assets\Cardboard\Editor\CardboardEditor.cs" />
-    <Compile Include="Assets\Cardboard\Editor\CardboardGazeEditor.cs" />
-    <Compile Include="Assets\Cardboard\Editor\CardboardMenu.cs" />
-    <Compile Include="Assets\Cardboard\Editor\CardboardSetup.cs" />
-    <Compile Include="Assets\Cardboard\Editor\StereoControllerEditor.cs" />
+    <Compile Include="Assets\Game\Scene\Editor\CardboardAudioListenerEditor.cs" />
+    <Compile Include="Assets\Game\Scene\Editor\CardboardAudioRoomEditor.cs" />
+    <Compile Include="Assets\Game\Scene\Editor\CardboardAudioSourceEditor.cs" />
+    <Compile Include="Assets\Game\Scene\Editor\CardboardEditor.cs" />
+    <Compile Include="Assets\Game\Scene\Editor\CardboardGazeEditor.cs" />
+    <Compile Include="Assets\Game\Scene\Editor\CardboardMenu.cs" />
+    <Compile Include="Assets\Game\Scene\Editor\CardboardSetup.cs" />
+    <Compile Include="Assets\Game\Scene\Editor\StereoControllerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />

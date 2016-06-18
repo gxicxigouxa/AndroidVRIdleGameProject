@@ -12,7 +12,7 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
@@ -61,6 +61,27 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Data">
+      <HintPath>Assets\Plugins\Mono.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>Assets\Plugins\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.SqliteClient">
+      <HintPath>Assets\Plugins\Mono.Data.SqliteClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <HintPath>Assets\Plugins\System.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Assets\Plugins\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <HintPath>Assets\Plugins\System.EnterpriseServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security">
+      <HintPath>Assets\Plugins\System.Security.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Cardboard\Scripts\Audio\CardboardAudio.cs" />
@@ -91,12 +112,14 @@
     <Compile Include="Assets\Game\Event\ObjectRemover.cs" />
     <Compile Include="Assets\Game\Event\Vibration.cs" />
     <Compile Include="Assets\Game\Game Object\MainObjectScript.cs" />
+    <Compile Include="Assets\Game\SQLite\DBmanager.cs" />
     <Compile Include="Assets\Game\Text\CurrentObjectCountTextScript.cs" />
+    <Compile Include="Assets\Game\Text\DamageTextScript.cs" />
     <Compile Include="Assets\Game\Text\GenerateTimeTextScript.cs" />
     <Compile Include="Assets\Game\Text\MaximumObjectTextScript.cs" />
     <Compile Include="Assets\Game\Text\ObjectScaleTextScript.cs" />
+    <Compile Include="Assets\Game\Text\PlayingTimeCaller.cs" />
     <Compile Include="Assets\Game\Text\PlayingTimeTextScript.cs" />
-    <Compile Include="Assets\Game\Text\RemoveTimeTextScript.cs" />
     <Compile Include="Assets\Game\Text\ScoreTextScript.cs" />
     <Compile Include="Assets\Game\Text\UnitScoreTextScript.cs" />
     <Compile Include="Assets\Game\UI\Button\Information\InformationButtonScript.cs" />
@@ -104,6 +127,7 @@
     <Compile Include="Assets\Game\UI\Button\Message\MessageButtonScript.cs" />
     <Compile Include="Assets\Game\UI\Button\Shop\ShopButtonsScript.cs" />
     <Compile Include="Assets\Game\UI\CanvasScript.cs" />
+    <Compile Include="Assets\dbAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />

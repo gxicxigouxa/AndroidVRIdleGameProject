@@ -57,30 +57,28 @@ public class DBmanager : MonoBehaviour {
                     if (reader.Read() == false)
                     {
                         reader.Close();
-                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, removeTime, scale, day, hour, minute, second) VALUES(0, 1, 10, 1.0, 0.5, 0, 0, 0, 0, 0)";
+                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, removeTime, scale, day, hour, minute, second) VALUES("+ MainObjectScript.Score +", "+ MainObjectScript.UnitScore +", " + MainObjectScript.MaxObject + ", 1.0, 0.5, 0, 0, 0, 0, 0)";
                         dbCmd.CommandText = query;
                         dbCmd.ExecuteNonQuery();
                     }
-                }
-                query = "SELECT * FROM infomation";
-                dbCmd.CommandText = query;
-                using (IDataReader reader = dbCmd.ExecuteReader())
-                { 
-                    reader.Read();
-
-                    MainObjectScript.Score = reader.GetInt32(1);
-                    MainObjectScript.UnitScore = reader.GetInt32(2);
-                    MainObjectScript.MaxObject = reader.GetInt32(3);
-                    ObjectGenerator.GenerateDelay = reader.GetFloat(4);
-                    ObjectRemover.RemoveTime = reader.GetFloat(5);
-                    ObjectGenerator.ObjectScaleCount = reader.GetInt32(6);
-                    PlayingTimeTextScript.Day = reader.GetInt32(7);
-                    PlayingTimeTextScript.Hour = reader.GetInt32(8);
-                    PlayingTimeTextScript.Minute = reader.GetInt32(9);
-                    PlayingTimeTextScript.Second = reader.GetInt32(10);
+                    else
+                    {
+                        MainObjectScript.Score = reader.GetInt32(1);
+                        MainObjectScript.UnitScore = reader.GetInt32(2);
+                        MainObjectScript.MaxObject = reader.GetInt32(3);
+                        ObjectGenerator.GenerateDelay = reader.GetFloat(4);
+                        ObjectRemover.RemoveTime = reader.GetFloat(5);
+                        ObjectGenerator.ObjectScaleCount = reader.GetInt32(6);
+                        PlayingTimeTextScript.Day = reader.GetInt32(7);
+                        PlayingTimeTextScript.Hour = reader.GetInt32(8);
+                        PlayingTimeTextScript.Minute = reader.GetInt32(9);
+                        PlayingTimeTextScript.Second = reader.GetInt32(10);
+                        
+                    }
                     reader.Close();
                     dbConnection.Close();
                 }
+             
             }
         }
     }
@@ -188,7 +186,7 @@ public class DBmanager : MonoBehaviour {
 
     }
 
-    public static void storeDate()
+    public static void storeDate(int day, int hour, int minute, int second)
     {
         using (IDbConnection dbConnection = new SqliteConnection(connectionString))
         {
@@ -196,27 +194,21 @@ public class DBmanager : MonoBehaviour {
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                int temp = PlayingTimeTextScript.Day + PlayingTimeTextScript.playDay;
-
-                string query = "UPDATE infomation SET day = " + temp;
+                string query = "UPDATE infomation SET day = " + day;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                temp = PlayingTimeTextScript.Hour + PlayingTimeTextScript.playHour;
-                query = "UPDATE infomation SET hour = " + temp;
+                query = "UPDATE infomation SET hour = " + hour;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                temp = PlayingTimeTextScript.Minute + PlayingTimeTextScript.playMinute;
-                query = "UPDATE infomation SET minute = " + temp;
+                query = "UPDATE infomation SET minute = " + minute;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                temp = PlayingTimeTextScript.Second + PlayingTimeTextScript.playSecond;
-                query = "UPDATE infomation SET second = " + temp;
+                query = "UPDATE infomation SET second = " + second;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
-
 
                 dbConnection.Close();
             }
