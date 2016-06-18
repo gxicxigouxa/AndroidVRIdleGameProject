@@ -53,29 +53,15 @@ public class ShopButtonsScript : MonoBehaviour {
         DBmanager.storeMaxObject();
         DBmanager.storeScore();
     }
-
-  //Object의 제거 시간을 0.01 감소.
-  /*
-  public void ReduceRemoveTime() {
-    Vibration.Vibrate(100L);
-    if (IsCanPurchase(price_of_reduce_remove_time_)) {
-      MainObjectScript.Score -= price_of_reduce_remove_time_;
-      ObjectRemover.RemoveTime -= 0.01F;
-    } else {
-      message_canvas.SetActive(!message_canvas.activeSelf);
-      shop_canvas.SetActive(!shop_canvas.activeSelf);
-    }
-        DBmanager.storeRemoveTime();
-        DBmanager.storeScore();
-    }
-    */
+    
 
   //Object 공격 시 피해량을 1 증가.
   public void IncreaseDamage() {
     Vibration.Vibrate(100L);
     if (IsCanPurchase(price_of_increase_damage_)) {
       MainObjectScript.Score -= price_of_increase_damage_;
-      ObjectRemover.Damage += 1;
+      ObjectRemover.Damage += 1.0F;
+            DBmanager.storeDamage();
     } else {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);

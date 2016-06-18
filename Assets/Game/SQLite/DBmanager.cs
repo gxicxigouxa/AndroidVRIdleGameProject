@@ -44,7 +44,7 @@ public class DBmanager : MonoBehaviour {
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, removeTime FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER)";
+                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER)";
 
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
@@ -57,7 +57,7 @@ public class DBmanager : MonoBehaviour {
                     if (reader.Read() == false)
                     {
                         reader.Close();
-                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, removeTime, scale, day, hour, minute, second) VALUES("+ MainObjectScript.Score +", "+ MainObjectScript.UnitScore +", " + MainObjectScript.MaxObject + ", 1.0, 0.5, 0, 0, 0, 0, 0)";
+                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second) VALUES("+ MainObjectScript.Score +", "+ MainObjectScript.UnitScore +", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", 0, 0, 0, 0, 0)";
                         dbCmd.CommandText = query;
                         dbCmd.ExecuteNonQuery();
                     }
@@ -67,7 +67,7 @@ public class DBmanager : MonoBehaviour {
                         MainObjectScript.UnitScore = reader.GetInt32(2);
                         MainObjectScript.MaxObject = reader.GetInt32(3);
                         ObjectGenerator.GenerateDelay = reader.GetFloat(4);
-                        ObjectRemover.RemoveTime = reader.GetFloat(5);
+                        ObjectRemover.Damage = reader.GetFloat(5);
                         ObjectGenerator.ObjectScaleCount = reader.GetInt32(6);
                         PlayingTimeTextScript.Day = reader.GetInt32(7);
                         PlayingTimeTextScript.Hour = reader.GetInt32(8);
@@ -151,7 +151,7 @@ public class DBmanager : MonoBehaviour {
         }
     }
 
-    public static void storeRemoveTime()
+    public static void storeDamage()
     {
         using (IDbConnection dbConnection = new SqliteConnection(connectionString))
         {
@@ -160,7 +160,7 @@ public class DBmanager : MonoBehaviour {
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
 
-                string query = "UPDATE infomation SET removeTime = " + ObjectRemover.RemoveTime;
+                string query = "UPDATE infomation SET damage = " + ObjectRemover.Damage;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
                 dbConnection.Close();

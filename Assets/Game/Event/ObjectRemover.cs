@@ -7,8 +7,7 @@ using System.Collections;
 /// </summary>
 public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
   //Object를 바라보고 있을 때의 주는 피해량.
-  private static int damage_ = 1;
-  private static float remove_time_ = 0.5F;
+  private static float damage_ = 1.0F;
   // Use this for initialization
   void Start() {
   }
@@ -18,22 +17,14 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
 
   }
 
-  public static int Damage {
+  public static float Damage {
     get {
       return damage_;
     } set {
       damage_ = value;
     }
   }
-
-  public static float RemoveTime {
-    get {
-      return remove_time_;
-    } set {
-      remove_time_ = value;
-    }
-  }
-
+    
   //Object 제거 함수.
   public void RemoveObject() {
     //gameObject를 없앤다.
