@@ -11,7 +11,6 @@ public class ShopButtonsScript : MonoBehaviour {
   //각종 Item의 구매 비용.
   private int price_of_increase_obtain_score_ = 1;
   private int price_of_increase_maximum_object_ = 1;
-  //private int price_of_reduce_remove_time_ = 1;
   private int price_of_increase_damage_ = 1;
   private int price_of_reduce_generate_time_ = 1;
   private int price_of_increase_object_scale_ = 1;
@@ -38,7 +37,8 @@ public class ShopButtonsScript : MonoBehaviour {
     }
         DBmanager.storeUnitScore();
         DBmanager.storeScore();
-  }
+        DBmanager.storeDate();
+    }
 
   //Object의 최대 생성 갯수를 1 증가.
   public void IncreaseMaximumObject() {
@@ -52,6 +52,7 @@ public class ShopButtonsScript : MonoBehaviour {
     }
         DBmanager.storeMaxObject();
         DBmanager.storeScore();
+        DBmanager.storeDate();
     }
     
 
@@ -62,7 +63,8 @@ public class ShopButtonsScript : MonoBehaviour {
       MainObjectScript.Score -= price_of_increase_damage_;
       ObjectRemover.Damage += 1.0F;
             DBmanager.storeDamage();
-    } else {
+            DBmanager.storeDate();
+        } else {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);
     }
@@ -80,6 +82,7 @@ public class ShopButtonsScript : MonoBehaviour {
     }
         DBmanager.storeGenerateDelay();
         DBmanager.storeScore();
+        DBmanager.storeDate();
     }
 
   //Object 생성 시 크기에 대한 count를 1 증가.
@@ -94,6 +97,7 @@ public class ShopButtonsScript : MonoBehaviour {
     }
         DBmanager.storeScale();
         DBmanager.storeScore();
+        DBmanager.storeDate();
     }
 
   public void RemoveAllObjects() {
@@ -106,6 +110,7 @@ public class ShopButtonsScript : MonoBehaviour {
       shop_canvas.SetActive(!shop_canvas.activeSelf);
     }
         DBmanager.storeScore();
+        DBmanager.storeDate();
     }
 
   //Menu로 되돌아가기.

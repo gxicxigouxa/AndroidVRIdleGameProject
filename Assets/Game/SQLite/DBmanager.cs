@@ -186,7 +186,7 @@ public class DBmanager : MonoBehaviour {
 
     }
 
-    public static void storeDate(int day, int hour, int minute, int second)
+    public static void storeDate()
     {
         using (IDbConnection dbConnection = new SqliteConnection(connectionString))
         {
@@ -194,19 +194,19 @@ public class DBmanager : MonoBehaviour {
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                string query = "UPDATE infomation SET day = " + day;
+                string query = "UPDATE infomation SET day = " + PlayingTimeTextScript.Day;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                query = "UPDATE infomation SET hour = " + hour;
+                query = "UPDATE infomation SET hour = " + PlayingTimeTextScript.Hour;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                query = "UPDATE infomation SET minute = " + minute;
+                query = "UPDATE infomation SET minute = " + PlayingTimeTextScript.Minute;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-                query = "UPDATE infomation SET second = " + second;
+                query = "UPDATE infomation SET second = " + PlayingTimeTextScript.Second;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 

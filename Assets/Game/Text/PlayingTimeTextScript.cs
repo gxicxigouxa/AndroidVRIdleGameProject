@@ -98,6 +98,16 @@ public class PlayingTimeTextScript : MonoBehaviour {
   //Text의 내용 Update.
   public void TextUpdate() {
 
+        timeUpdate();
+
+        GetComponent<Text>().text = "플레이 시간 : \n" + Day + "일 " +
+                                 Hour + "시간 " +
+                                 Minute + "분 " +
+                                 Second + "초";
+  }
+
+    public static void timeUpdate()
+    {
         playTime = Time.realtimeSinceStartup;
 
         playSecond_ = (int)playTime % 60;
@@ -108,35 +118,25 @@ public class PlayingTimeTextScript : MonoBehaviour {
         playTime /= 60;
         playDay_ = (int)playTime % 24;
 
-        int tempDay = Day + playDay;
-        int tempHour = Hour + playHour;
-        int tempMinute = Minute + playMinute;
-        int tempSecond = Second + playSecond;
+        Day = Day + playDay;
+        Hour = Hour + playHour;
+        Minute = Minute + playMinute;
+        Second = Second + playSecond;
 
-
-
-        if (tempSecond >= 60)
+        if (Second >= 60)
         {
-            tempMinute++;
-            tempSecond = 0;
+            Minute++;
+            Second = 0;
         }
-        if (tempMinute >= 60)
+        if (Minute >= 60)
         {
-            tempHour++;
-            tempMinute = 0;
+            Hour++;
+            Minute = 0;
         }
-        if (tempHour >= 24)
+        if (Hour >= 24)
         {
-            tempDay++;
-            tempHour = 0;
+            Day++;
+            Hour = 0;
         }
-        
-
-        GetComponent<Text>().text = "플레이 시간 : \n" + tempDay + "일 " +
-                                 tempHour + "시간 " +
-                                 tempMinute + "분 " +
-                                 tempSecond + "초";
-
-        DBmanager.storeDate(tempDay , tempHour, tempMinute, tempSecond);
-  }
+    }
 }
