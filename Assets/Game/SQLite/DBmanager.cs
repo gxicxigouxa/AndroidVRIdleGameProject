@@ -44,7 +44,7 @@ public class DBmanager : MonoBehaviour {
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER)";
+                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER, bossCount INTEGER)";
 
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
@@ -57,7 +57,7 @@ public class DBmanager : MonoBehaviour {
                     if (reader.Read() == false)
                     {
                         reader.Close();
-                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second) VALUES("+ MainObjectScript.Score +", "+ MainObjectScript.UnitScore +", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", 0, 0, 0, 0, 0)";
+                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second, bossCount) VALUES("+ MainObjectScript.Score +", "+ MainObjectScript.UnitScore +", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", " + ObjectGenerator.ObjectScaleCount +  ", 0, 0, 0, 0, " + BossObject.appearCount + ")";
                         dbCmd.CommandText = query;
                         dbCmd.ExecuteNonQuery();
                     }
@@ -73,7 +73,7 @@ public class DBmanager : MonoBehaviour {
                         PlayingTimeTextScript.Hour = reader.GetInt32(8);
                         PlayingTimeTextScript.Minute = reader.GetInt32(9);
                         PlayingTimeTextScript.Second = reader.GetInt32(10);
-                        
+                        BossObject.appearCount = reader.GetInt32(11);
                     }
                     reader.Close();
                     dbConnection.Close();

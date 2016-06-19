@@ -10,7 +10,7 @@ public class BossObject : MonoBehaviour {
     private float max_helth_point_ = MainObjectScript.MaxHelth * 10;    // 보스의 최대 체력
     public float current_helth_point_;      // 보스의 현재 체력
     private bool is_under_attack_ = false;      
-    private static int appearCount = 1;     // 보스가 몇번 등장했는지 카운트 하는 변수
+    public static int appearCount = 1;     // 보스가 몇번 등장했는지 카운트 하는 변수
     public static int appearScore = 100 * appearCount;      // 보스의 등장 조건을 나타내기 위한 변수 ( 일정 점수 이상이면 보스 등장)
     public static bool isAppear = false;
     
@@ -37,6 +37,7 @@ public class BossObject : MonoBehaviour {
         if (current_helth_point_ <= 0)
         {
             // 보스가 죽으면 보스 잡은 카운트(appearCount) 를 증가 시키고 현재 보스가 맵상에 존재 하지 않기 때문에 isAppear 과 isInBoss 가 false 가 된다.
+            score = MainObjectScript.UnitScore * 7;
             appearCount++;
             appearScore = 100 * appearCount;
             ObjectGenerator.isInBoss = false;
