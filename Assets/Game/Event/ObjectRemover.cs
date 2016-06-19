@@ -36,8 +36,17 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
         PlayingTimeTextScript.timeUpdate();
     }
 
-  //호출 시 모든 Object 제거.
-  public static void RemoveAllObjects() {
+    public void RemoveBossObject()
+    {
+        //BossObject를 없앤다.
+        Destroy(gameObject);
+        MainObjectScript.Score += BossObject.score;
+        DBmanager.storeScore();
+        PlayingTimeTextScript.timeUpdate();
+    }
+
+    //호출 시 모든 Object 제거.
+    public static void RemoveAllObjects() {
     uint number_of_object = (uint)MainObjectScript.GameObjects.Count;
     foreach (GameObject current_object in MainObjectScript.GameObjects) {
       Destroy(current_object);

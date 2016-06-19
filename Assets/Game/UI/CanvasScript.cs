@@ -34,9 +34,6 @@ public class CanvasScript : MonoBehaviour {
 
             float x = Mathf.Cos((temp - 90) / 180 * Mathf.PI);
             float z = Mathf.Sqrt(1 - x * x);
-
-            Debug.Log(x);
-            Debug.Log(z);
             transform.position = new Vector3(x * 3, 0, - z * 3);
         }
 
@@ -45,8 +42,6 @@ public class CanvasScript : MonoBehaviour {
             temp = camera_rotation.eulerAngles.y;
             float x = Mathf.Cos((temp - 90) / 180 * Mathf.PI);
             float z = Mathf.Sqrt(1 - x * x);
-            Debug.Log(x);
-            Debug.Log(z);
             transform.position = new Vector3(x * 3, 0, z * 3);
         }
     }

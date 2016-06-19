@@ -18,7 +18,7 @@ public class MainObjectScript : MonoBehaviour {
   //object를 저장하기 위한 HashSet;
   private static HashSet<GameObject> game_objects_ = new HashSet<GameObject>();
   //Object의 기본 최대 체력.
-  private float max_helth_point_ = 100.0F;
+  private static float max_helth_point_ = 100.0F;
   //Object의 현재 체력.
   public float current_helth_point_;
   //Object의 체력이 전부 떨어졌는지 판단.
@@ -46,6 +46,18 @@ public class MainObjectScript : MonoBehaviour {
       SendMessage("RemoveObject");
     }
   }
+
+    public static float MaxHelth
+    {
+        get
+        {
+            return max_helth_point_;
+        }
+        set
+        {
+            max_helth_point_ = value;
+        }
+    }
 
   public static long Score {
     get {
