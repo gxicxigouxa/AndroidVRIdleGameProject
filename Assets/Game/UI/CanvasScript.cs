@@ -26,5 +26,29 @@ public class CanvasScript : MonoBehaviour {
   //카메라의 Z축 회전에 따라 해당 Object(Canvas)도 같이 회전.
   public void Rotate() {
     transform.rotation = Quaternion.Euler(kOriginalRotation.eulerAngles.x, camera_rotation.eulerAngles.y, kOriginalRotation.eulerAngles.z);
-  }
+        //Debug.Log(Mathf.Cos(90 / 180 * Mathf.PI));
+        float temp ;
+        if (camera_rotation.eulerAngles.y > 90 && camera_rotation.eulerAngles.y < 270)
+        {
+            temp = camera_rotation.eulerAngles.y;
+
+            float x = Mathf.Cos((temp - 90) / 180 * Mathf.PI);
+            float z = Mathf.Sqrt(1 - x * x);
+
+            Debug.Log(x);
+            Debug.Log(z);
+            transform.position = new Vector3(x * 3, 0, - z * 3);
+        }
+
+        else
+        {
+            temp = camera_rotation.eulerAngles.y;
+            float x = Mathf.Cos((temp - 90) / 180 * Mathf.PI);
+            float z = Mathf.Sqrt(1 - x * x);
+            Debug.Log(x);
+            Debug.Log(z);
+            transform.position = new Vector3(x * 3, 0, z * 3);
+        }
+    }
+       
 }

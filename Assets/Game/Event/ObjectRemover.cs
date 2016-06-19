@@ -33,7 +33,7 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
     MainObjectScript.ObjectCount -= 1;
     MainObjectScript.Score += MainObjectScript.UnitScore;
        DBmanager.storeScore();
-        DBmanager.storeDate();
+        PlayingTimeTextScript.timeUpdate();
     }
 
   //호출 시 모든 Object 제거.
