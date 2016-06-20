@@ -82,6 +82,7 @@
      <Compile Include="Assets\Game\Text\ObjectScaleTextScript.cs" />
      <Compile Include="Assets\Game\Text\PlayingTimeCaller.cs" />
      <Compile Include="Assets\Game\Text\PlayingTimeTextScript.cs" />
+     <Compile Include="Assets\Game\Text\PlayingTotalScore.cs" />
      <Compile Include="Assets\Game\Text\ScoreTextScript.cs" />
      <Compile Include="Assets\Game\Text\UnitScoreTextScript.cs" />
      <Compile Include="Assets\Game\UI\Button\Information\InformationButtonScript.cs" />

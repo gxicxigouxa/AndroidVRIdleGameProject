@@ -61,7 +61,7 @@ public class ShopButtonsScript : MonoBehaviour {
     Vibration.Vibrate(100L);
     if (IsCanPurchase(price_of_increase_damage_)) {
       MainObjectScript.Score -= price_of_increase_damage_;
-      ObjectRemover.Damage += 1.0F;
+      ObjectRemover.Damage += 0.1F;
             DBmanager.storeDamage();
             PlayingTimeTextScript.timeUpdate();
         } else {

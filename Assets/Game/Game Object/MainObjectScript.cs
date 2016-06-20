@@ -25,6 +25,8 @@ public class MainObjectScript : MonoBehaviour {
   private bool is_under_attack_ = false;
   //Object의 체력을 나타낼 체력 게이지.
   public Slider helth_bar_slider;
+
+    public static int totalScore = 0;
   // Use this for initialization
   void Start() {
     current_helth_point_ = max_helth_point_;

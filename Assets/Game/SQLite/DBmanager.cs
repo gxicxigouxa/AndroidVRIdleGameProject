@@ -44,7 +44,7 @@ public class DBmanager : MonoBehaviour {
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER, bossCount INTEGER)";
+                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER, bossCount INTEGER, totalScore INTEGER)";
 
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
@@ -57,7 +57,7 @@ public class DBmanager : MonoBehaviour {
                     if (reader.Read() == false)
                     {
                         reader.Close();
-                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second, bossCount) VALUES("+ MainObjectScript.Score +", "+ MainObjectScript.UnitScore +", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", " + ObjectGenerator.ObjectScaleCount +  ", 0, 0, 0, 0, " + BossObject.appearCount + ")";
+                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second, bossCount, totalScore) VALUES("+ MainObjectScript.Score +", "+ MainObjectScript.UnitScore +", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", " + ObjectGenerator.ObjectScaleCount +  ", 0, 0, 0, 0, " + BossObject.appearCount + ", " + MainObjectScript.totalScore + ")";
                         dbCmd.CommandText = query;
                         dbCmd.ExecuteNonQuery();
                     }
@@ -74,6 +74,7 @@ public class DBmanager : MonoBehaviour {
                         PlayingTimeTextScript.Minute = reader.GetInt32(9);
                         PlayingTimeTextScript.Second = reader.GetInt32(10);
                         BossObject.appearCount = reader.GetInt32(11);
+                        MainObjectScript.totalScore = reader.GetInt32(12);
                     }
                     reader.Close();
                     dbConnection.Close();
@@ -95,6 +96,11 @@ public class DBmanager : MonoBehaviour {
                 string query = "UPDATE infomation SET score = " + MainObjectScript.Score;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
+
+                query = "UPDATE infomation SET totalScore = " + MainObjectScript.totalScore;
+                dbCmd.CommandText = query;
+                dbCmd.ExecuteNonQuery();
+
                 dbConnection.Close();
             }
         }

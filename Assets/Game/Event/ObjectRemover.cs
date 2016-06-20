@@ -32,6 +32,7 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
     Destroy(gameObject);
     MainObjectScript.ObjectCount -= 1;
     MainObjectScript.Score += MainObjectScript.UnitScore;
+        MainObjectScript.totalScore += MainObjectScript.UnitScore;
        DBmanager.storeScore();
         PlayingTimeTextScript.timeUpdate();
     }
@@ -41,6 +42,7 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder {
         //BossObject를 없앤다.
         Destroy(gameObject);
         MainObjectScript.Score += BossObject.score;
+        MainObjectScript.totalScore += BossObject.score;
         DBmanager.storeScore();
         PlayingTimeTextScript.timeUpdate();
     }
