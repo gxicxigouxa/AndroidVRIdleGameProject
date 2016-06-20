@@ -35,6 +35,7 @@ public class MainObjectScript : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
+        MaxHelth = 100.0F +  (totalScore / 10);
     if (is_under_attack_) {
       DecreaseHelthPoint(ObjectRemover.Damage);
     }
