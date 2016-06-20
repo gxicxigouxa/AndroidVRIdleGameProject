@@ -58,6 +58,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -111,7 +117,10 @@
     <Compile Include="Assets\Game\Event\ObjectGenerator.cs" />
     <Compile Include="Assets\Game\Event\ObjectRemover.cs" />
     <Compile Include="Assets\Game\Event\Vibration.cs" />
+    <Compile Include="Assets\Game\Game Object\BossObject.cs" />
+    <Compile Include="Assets\Game\Game Object\ChangeColorScript.cs" />
     <Compile Include="Assets\Game\Game Object\MainObjectScript.cs" />
+    <Compile Include="Assets\Game\Game Object\SpinObjectScript.cs" />
     <Compile Include="Assets\Game\SQLite\DBmanager.cs" />
     <Compile Include="Assets\Game\Text\CurrentObjectCountTextScript.cs" />
     <Compile Include="Assets\Game\Text\DamageTextScript.cs" />
@@ -120,6 +129,7 @@
     <Compile Include="Assets\Game\Text\ObjectScaleTextScript.cs" />
     <Compile Include="Assets\Game\Text\PlayingTimeCaller.cs" />
     <Compile Include="Assets\Game\Text\PlayingTimeTextScript.cs" />
+    <Compile Include="Assets\Game\Text\PlayingTotalScore.cs" />
     <Compile Include="Assets\Game\Text\ScoreTextScript.cs" />
     <Compile Include="Assets\Game\Text\UnitScoreTextScript.cs" />
     <Compile Include="Assets\Game\UI\Button\Information\InformationButtonScript.cs" />
