@@ -221,4 +221,24 @@ public class DBmanager : MonoBehaviour {
         }
 
     }
+
+    public static void storeBossCount()
+    {
+        using (IDbConnection dbConnection = new SqliteConnection(connectionString))
+        {
+            dbConnection.Open();
+
+            using (IDbCommand dbCmd = dbConnection.CreateCommand())
+            {
+                string query = "UPDATE infomation SET bossCount = " + BossObject.appearCount;
+                dbCmd.CommandText = query;
+                dbCmd.ExecuteNonQuery();
+
+               
+
+                dbConnection.Close();
+            }
+        }
+
+    }
 }

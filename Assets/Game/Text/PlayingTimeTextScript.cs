@@ -152,6 +152,21 @@ public class PlayingTimeTextScript : MonoBehaviour {
             Day++;
             Hour = 0;
         }
+        if (Second < 0)
+        {
+            Minute--;
+            Second += 60;
+        }
+        if (Minute < 0)
+        {
+            Hour--;
+            Minute += 60;
+        }
+        if (Hour < 0)
+        {
+            Day--;
+            Hour += 24;
+        }
 
         preTime = temp;
         DBmanager.storeDate();

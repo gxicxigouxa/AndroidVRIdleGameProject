@@ -26,7 +26,7 @@ public class ObjectGenerator : MonoBehaviour {
     current_generate_delay_ -= Time.deltaTime;
         
     if (current_generate_delay_ <= 0) {
-            
+            Debug.Log(BossObject.appearScore);
             if ( BossObject.appearScore < MainObjectScript.Score)
             {
                 isInBoss = true;
@@ -52,7 +52,7 @@ public class ObjectGenerator : MonoBehaviour {
                 float position_z = Boss.transform.position.z + Random.Range(-1.0F, 1.0F);
                 
                 //지정된 범위 내에서는 생성되지 않도록 처리.
-                while (position_x * position_x + position_z * position_z < 9)
+                while (position_x * position_x + position_z * position_z < 16)
                 {
                     position_x = Boss.transform.position.x + Random.Range(-1.0F, 1.0F);
                     position_z = Boss.transform.position.z + Random.Range(-1.0F, 1.0F);
@@ -62,7 +62,7 @@ public class ObjectGenerator : MonoBehaviour {
                                                                  position_z * position_z)
                                                                  / Mathf.Sqrt(3.0F));
                 //결정된 좌표들을 이용해 이동.
-                Boss.transform.position = new Vector3(position_x, position_y,
+                Boss.transform.position = new Vector3(position_x, position_y + 2,
                                                              position_z);
                 moveCount = 0;
             }
@@ -99,7 +99,7 @@ public class ObjectGenerator : MonoBehaviour {
       float position_x = Random.Range(-10.0F, 10.0F);
       float position_z = Random.Range(-10.0F, 10.0F);
       //지정된 범위 내에서는 생성되지 않도록 처리.
-      while (position_x * position_x + position_z * position_z < 9) {
+      while (position_x * position_x + position_z * position_z < 16) {
         position_x = Random.Range(-10.0F, 10.0F);
         position_z = Random.Range(-10.0F, 10.0F);
       }
@@ -108,7 +108,7 @@ public class ObjectGenerator : MonoBehaviour {
                                                        position_z * position_z)
                                                        / Mathf.Sqrt(3.0F));
       //결정된 좌표들을 이용해 이동.
-      new_object.transform.position = new Vector3(position_x, position_y,
+      new_object.transform.position = new Vector3(position_x, position_y + 2,
                                                    position_z);
       //Object set에 추가.
       MainObjectScript.GameObjects.Add(new_object);
@@ -121,14 +121,14 @@ public class ObjectGenerator : MonoBehaviour {
         {   // 보스가 맵에 없는 경우 생성
             GameObject new_object = Instantiate(boss_object);
             Boss = new_object;
-            new_object.transform.localScale += new Vector3(5.0F * object_scale_count_,
-                                                            5.0F * object_scale_count_,
-                                                            5.0F * object_scale_count_);
+            new_object.transform.localScale += new Vector3(0.01F * object_scale_count_,
+                                                            0.01F * object_scale_count_,
+                                                            0.01F * object_scale_count_);
             //x, z좌표 설정.
             float position_x = Random.Range(-10.0F, 10.0F);
             float position_z = Random.Range(-10.0F, 10.0F);
             //지정된 범위 내에서는 생성되지 않도록 처리.
-            while (position_x * position_x + position_z * position_z < 9)
+            while (position_x * position_x + position_z * position_z < 16)
             {
                 position_x = Random.Range(-10.0F, 10.0F);
                 position_z = Random.Range(-10.0F, 10.0F);
@@ -138,7 +138,7 @@ public class ObjectGenerator : MonoBehaviour {
                                                              position_z * position_z)
                                                              / Mathf.Sqrt(3.0F));
             //결정된 좌표들을 이용해 이동.
-            new_object.transform.position = new Vector3(position_x, position_y,
+            new_object.transform.position = new Vector3(position_x, position_y + 2,
                                                          position_z);
             //Object set에 추가.
 
