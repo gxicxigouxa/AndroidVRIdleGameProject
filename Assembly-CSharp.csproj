@@ -80,8 +80,10 @@
      <Compile Include="Assets\Game\Sound\sound.cs" />
      <Compile Include="Assets\Game\Text\CurrentObjectCountTextScript.cs" />
      <Compile Include="Assets\Game\Text\DamageTextScript.cs" />
+     <Compile Include="Assets\Game\Text\FirstRankerTextScript.cs" />
      <Compile Include="Assets\Game\Text\GenerateTimeTextScript.cs" />
      <Compile Include="Assets\Game\Text\MaximumObjectTextScript.cs" />
+     <Compile Include="Assets\Game\Text\MyRankTextScript.cs" />
      <Compile Include="Assets\Game\Text\ObjectScaleTextScript.cs" />
      <Compile Include="Assets\Game\Text\PlayingTimeCaller.cs" />
      <Compile Include="Assets\Game\Text\PlayingTimeTextScript.cs" />
@@ -91,8 +93,10 @@
      <Compile Include="Assets\Game\UI\Button\Information\InformationButtonScript.cs" />
      <Compile Include="Assets\Game\UI\Button\Menu\MenuButtonScript.cs" />
      <Compile Include="Assets\Game\UI\Button\Message\MessageButtonScript.cs" />
+     <Compile Include="Assets\Game\UI\Button\Ranking\RankingButtonScript.cs" />
      <Compile Include="Assets\Game\UI\Button\Shop\ShopButtonsScript.cs" />
      <Compile Include="Assets\Game\UI\CanvasScript.cs" />
+     <Compile Include="Assets\Game\mysql\MySqlCon.cs" />
      <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
      <None Include="Assets\Cardboard\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
@@ -112,6 +116,9 @@
  </Reference>
  <Reference Include="Mono.Data.SqliteClient">
  <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/Mono.Data.SqliteClient.dll</HintPath>
+ </Reference>
+ <Reference Include="MySql.Data">
+ <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/MySql.Data.dll</HintPath>
  </Reference>
  <Reference Include="System.Configuration">
  <HintPath>C:/Users/kjw/Documents/GitHub/Unity-Term-Project/Assets/Plugins/System.Configuration.dll</HintPath>

@@ -7,8 +7,15 @@ using System.Collections.Generic;
 /// Main Object에 대한 Script.
 /// </summary>
 public class MainObjectScript : MonoBehaviour {
-  //제거한 Object에 따른 점수.
-  private static long score_ = 0;
+
+
+    //랭크 서버에서 쓸 식별자
+    private static int id_ = 0;
+    //현재 순위잼. 디비에 저장할 필요는 없을것같다?
+    private static int rank_ = 1;
+
+    //제거한 Object에 따른 점수.
+    private static long score_ = 0;
   //한 Object에 대한 단위 점수.
   private static int unit_score_ = 1;
   //현재 화면에 나타난 Object의 갯수.
@@ -59,8 +66,29 @@ public class MainObjectScript : MonoBehaviour {
       max_helth_point_ = value;
     }
   }
-
-  public static long Score {
+    public static int UserID
+    {
+        get
+        {
+            return id_;
+        }
+        set
+        {
+            id_ = value;
+        }
+    }
+    public static int Rank
+    {
+        get
+        {
+            return rank_;
+        }
+        set
+        {
+            rank_ = value;
+        }
+    }
+    public static long Score {
     get {
       return score_;
     }

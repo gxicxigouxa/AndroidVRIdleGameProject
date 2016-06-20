@@ -46,7 +46,7 @@ public class DBmanager : MonoBehaviour
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER, bossCount INTEGER, totalScore INTEGER)";
+                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER, bossCount INTEGER, totalScore INTEGER,userid INTEGER)";
 
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
@@ -59,7 +59,7 @@ public class DBmanager : MonoBehaviour
                     if (reader.Read() == false)
                     {
                         reader.Close();
-                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second, bossCount, totalScore) VALUES(" + MainObjectScript.Score + ", " + MainObjectScript.UnitScore + ", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", " + ObjectGenerator.ObjectScaleCount + ", 0, 0, 0, 0, 1, " + MainObjectScript.totalScore + ")";
+                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second, bossCount, totalScore,userid) VALUES(" + MainObjectScript.Score + ", " + MainObjectScript.UnitScore + ", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", " + ObjectGenerator.ObjectScaleCount + ", 0, 0, 0, 0, 1, " + MainObjectScript.totalScore + ",0)";
                         dbCmd.CommandText = query;
                         dbCmd.ExecuteNonQuery();
                     }
@@ -77,6 +77,7 @@ public class DBmanager : MonoBehaviour
                         PlayingTimeTextScript.Second = reader.GetInt32(10);
                         BossObject.appearCount = reader.GetInt32(11);
                         MainObjectScript.totalScore = reader.GetInt32(12);
+                        MainObjectScript.UserID = reader.GetInt32(13);
                     }
                     reader.Close();
                     dbConnection.Close();
@@ -85,7 +86,22 @@ public class DBmanager : MonoBehaviour
             }
         }
     }
+    public static void storeUserID()
+    {
+        using (IDbConnection dbConnection = new SqliteConnection(connectionString))
+        {
+            dbConnection.Open();
 
+            using (IDbCommand dbCmd = dbConnection.CreateCommand())
+            {
+
+                string query = "UPDATE infomation SET userid = " + MainObjectScript.UserID;
+                dbCmd.CommandText = query;
+                dbCmd.ExecuteNonQuery();
+                dbConnection.Close();
+            }
+        }
+    }
     public static void storeScore()
     {
         using (IDbConnection dbConnection = new SqliteConnection(connectionString))
