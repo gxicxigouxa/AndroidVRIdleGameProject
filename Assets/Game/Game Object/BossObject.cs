@@ -10,20 +10,21 @@ public class BossObject : MonoBehaviour {
     private float max_helth_point_ = MainObjectScript.MaxHelth * 10 * appearCount;    // 보스의 최대 체력
     public float current_helth_point_;      // 보스의 현재 체력
     private bool is_under_attack_ = false;      
-    public static int appearCount = 100;     // 보스가 몇번 등장했는지 카운트 하는 변수
-    public static int appearScore = 100 * appearCount * appearCount;      // 보스의 등장 조건을 나타내기 위한 변수 ( 일정 점수 이상이면 보스 등장)
+    public static int appearCount;     // 보스가 몇번 등장했는지 카운트 하는 변수
+    public static int appearScore = int.MaxValue;      // 보스의 등장 조건을 나타내기 위한 변수 ( 일정 점수 이상이면 보스 등장)
     public static bool isAppear = false;
-    
     
 
     // Use this for initialization
     void Start () {
+        
         current_helth_point_ = max_helth_point_;
-
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
+        appearScore = 100 * appearCount * appearCount;
         if (is_under_attack_) {
       DecreaseHelthPoint(ObjectRemover.Damage);
     }

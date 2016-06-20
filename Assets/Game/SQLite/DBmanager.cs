@@ -4,27 +4,29 @@ using System;
 using System.Data;
 using Mono.Data.Sqlite;
 using System.IO;
-public class DBmanager : MonoBehaviour {
+public class DBmanager : MonoBehaviour
+{
 
     private static string connectionString;
     private static string DBFilePath;
+    public static bool init = false;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         DBFilePath = Application.persistentDataPath + "/GameDB.sqlite";
         connectionString = "URI=file:" + DBFilePath;
-
         getInfomation();
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        init = true;
+    }
 
-    private static void getInfomation()
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public static void getInfomation()
     {
         if (!File.Exists(DBFilePath))
         {
@@ -57,7 +59,7 @@ public class DBmanager : MonoBehaviour {
                     if (reader.Read() == false)
                     {
                         reader.Close();
-                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second, bossCount, totalScore) VALUES("+ MainObjectScript.Score +", "+ MainObjectScript.UnitScore +", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", " + ObjectGenerator.ObjectScaleCount +  ", 0, 0, 0, 0, " + BossObject.appearCount + ", " + MainObjectScript.totalScore + ")";
+                        query = "INSERT INTO infomation(score, unitScore, maxObject, generateDelay, damage, scale, day, hour, minute, second, bossCount, totalScore) VALUES(" + MainObjectScript.Score + ", " + MainObjectScript.UnitScore + ", " + MainObjectScript.MaxObject + "," + ObjectGenerator.GenerateDelay + ", " + ObjectRemover.Damage + ", " + ObjectGenerator.ObjectScaleCount + ", 0, 0, 0, 0, 1, " + MainObjectScript.totalScore + ")";
                         dbCmd.CommandText = query;
                         dbCmd.ExecuteNonQuery();
                     }
@@ -79,7 +81,7 @@ public class DBmanager : MonoBehaviour {
                     reader.Close();
                     dbConnection.Close();
                 }
-             
+
             }
         }
     }
@@ -92,7 +94,7 @@ public class DBmanager : MonoBehaviour {
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-               
+
                 string query = "UPDATE infomation SET score = " + MainObjectScript.Score;
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
@@ -234,7 +236,7 @@ public class DBmanager : MonoBehaviour {
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
 
-               
+
 
                 dbConnection.Close();
             }
