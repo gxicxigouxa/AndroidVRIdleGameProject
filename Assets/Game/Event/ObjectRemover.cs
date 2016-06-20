@@ -10,8 +10,6 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder
     //Object를 바라보고 있을 때의 주는 피해량.
     private static float damage_ = 1.0F;
 
-    public static AudioSource removeSound;
-
     // Use this for initialization
     void Start()
     {
@@ -47,7 +45,7 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder
         MainObjectScript.totalScore += MainObjectScript.UnitScore;
         DBmanager.storeScore();
         PlayingTimeTextScript.timeUpdate();
-        removeSound.Play();
+        sound.removeSound();
     }
 
     public void RemoveBossObject()

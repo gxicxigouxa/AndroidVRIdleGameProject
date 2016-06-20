@@ -93,7 +93,6 @@
      <Compile Include="Assets\Game\UI\Button\Message\MessageButtonScript.cs" />
      <Compile Include="Assets\Game\UI\Button\Shop\ShopButtonsScript.cs" />
      <Compile Include="Assets\Game\UI\CanvasScript.cs" />
-     <Compile Include="Assets\dbAccess.cs" />
      <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />
      <None Include="Assets\Cardboard\Resources\UnlitTexture.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
