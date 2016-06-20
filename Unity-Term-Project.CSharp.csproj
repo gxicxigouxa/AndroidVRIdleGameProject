@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -122,6 +116,7 @@
     <Compile Include="Assets\Game\Game Object\MainObjectScript.cs" />
     <Compile Include="Assets\Game\Game Object\SpinObjectScript.cs" />
     <Compile Include="Assets\Game\SQLite\DBmanager.cs" />
+    <Compile Include="Assets\Game\Sound\sound.cs" />
     <Compile Include="Assets\Game\Text\CurrentObjectCountTextScript.cs" />
     <Compile Include="Assets\Game\Text\DamageTextScript.cs" />
     <Compile Include="Assets\Game\Text\GenerateTimeTextScript.cs" />
@@ -137,7 +132,6 @@
     <Compile Include="Assets\Game\UI\Button\Message\MessageButtonScript.cs" />
     <Compile Include="Assets\Game\UI\Button\Shop\ShopButtonsScript.cs" />
     <Compile Include="Assets\Game\UI\CanvasScript.cs" />
-    <Compile Include="Assets\dbAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cardboard\Distortion\CardboardDistortion.cginc" />

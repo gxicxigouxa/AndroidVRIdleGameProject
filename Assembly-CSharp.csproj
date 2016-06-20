@@ -73,8 +73,11 @@
      <Compile Include="Assets\Game\Event\ObjectRemover.cs" />
      <Compile Include="Assets\Game\Event\Vibration.cs" />
      <Compile Include="Assets\Game\Game Object\BossObject.cs" />
+     <Compile Include="Assets\Game\Game Object\ChangeColorScript.cs" />
      <Compile Include="Assets\Game\Game Object\MainObjectScript.cs" />
+     <Compile Include="Assets\Game\Game Object\SpinObjectScript.cs" />
      <Compile Include="Assets\Game\SQLite\DBmanager.cs" />
+     <Compile Include="Assets\Game\Sound\sound.cs" />
      <Compile Include="Assets\Game\Text\CurrentObjectCountTextScript.cs" />
      <Compile Include="Assets\Game\Text\DamageTextScript.cs" />
      <Compile Include="Assets\Game\Text\GenerateTimeTextScript.cs" />

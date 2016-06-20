@@ -27,6 +27,7 @@ public class BossObject : MonoBehaviour {
         appearScore = 100 * appearCount * appearCount;
         if (is_under_attack_) {
       DecreaseHelthPoint(ObjectRemover.Damage);
+      ChangeColorScript.ChangeColorByHelthPoint(gameObject, max_helth_point_, current_helth_point_, is_boss_object : true);
     }
 	
 	}
