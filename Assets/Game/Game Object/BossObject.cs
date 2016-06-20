@@ -7,7 +7,7 @@ public class BossObject : MonoBehaviour {
     // 보스는 일반 물체의 ** 배 의 비율로 값을 정했다.
 
     public static int score = MainObjectScript.UnitScore * 7;   // 보스를 잡으면 얻는 점수
-    private float max_helth_point_ = MainObjectScript.MaxHelth * 10;    // 보스의 최대 체력
+    private float max_helth_point_ = MainObjectScript.MaxHelth * 10 * appearCount;    // 보스의 최대 체력
     public float current_helth_point_;      // 보스의 현재 체력
     private bool is_under_attack_ = false;      
     public static int appearCount = 100;     // 보스가 몇번 등장했는지 카운트 하는 변수

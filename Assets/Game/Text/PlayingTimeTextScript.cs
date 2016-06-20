@@ -130,8 +130,6 @@ public class PlayingTimeTextScript : MonoBehaviour {
         preTime /= 60;
         int tempDay = (int)preTime % 24;
 
-
-
         Day = Day + playDay - tempDay;
         Hour = Hour + playHour - tempHour;
         Minute = Minute + playMinute - tempMinute;

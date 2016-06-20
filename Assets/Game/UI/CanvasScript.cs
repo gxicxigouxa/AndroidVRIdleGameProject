@@ -28,22 +28,16 @@ public class CanvasScript : MonoBehaviour {
     transform.rotation = Quaternion.Euler(kOriginalRotation.eulerAngles.x, camera_rotation.eulerAngles.y, kOriginalRotation.eulerAngles.z);
         //Debug.Log(Mathf.Cos(90 / 180 * Mathf.PI));
         float temp ;
+        temp = camera_rotation.eulerAngles.y;
+        float x = Mathf.Cos((temp - 90) / 180 * Mathf.PI);
+        float z = Mathf.Sqrt(1 - x * x);
         if (camera_rotation.eulerAngles.y > 90 && camera_rotation.eulerAngles.y < 270)
         {
-            temp = camera_rotation.eulerAngles.y;
-
-            float x = Mathf.Cos((temp - 90) / 180 * Mathf.PI);
-            float z = Mathf.Sqrt(1 - x * x);
             transform.position = new Vector3(x * 3, 0, - z * 3);
         }
-
         else
         {
-            temp = camera_rotation.eulerAngles.y;
-            float x = Mathf.Cos((temp - 90) / 180 * Mathf.PI);
-            float z = Mathf.Sqrt(1 - x * x);
             transform.position = new Vector3(x * 3, 0, z * 3);
         }
     }
-       
 }
