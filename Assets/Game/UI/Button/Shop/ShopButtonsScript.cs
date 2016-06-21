@@ -28,7 +28,7 @@ public class ShopButtonsScript : MonoBehaviour {
         price_of_increase_damage_ = 100 * BossObject.appearCount * BossObject.appearCount;
         price_of_reduce_generate_time_ = 1600 - (int)(ObjectGenerator.GenerateDelay * 1000) ;
         price_of_increase_object_scale_ = (ObjectGenerator.ObjectScaleCount + 1 ) * 100;
-        price_of_remove_all_objects_ = MainObjectScript.ObjectCount * ( MainObjectScript.UnitScore - 1 );
+        price_of_remove_all_objects_ = MainObjectScript.UnitScore * ( MainObjectScript.ObjectCount - 1 );
         
     }
 
