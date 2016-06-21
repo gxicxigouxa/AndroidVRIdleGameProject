@@ -56,6 +56,7 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder
         MainObjectScript.totalScore += BossObject.score;
         DBmanager.storeScore();
         PlayingTimeTextScript.timeUpdate();
+        sound.removeSound();
     }
 
     //호출 시 모든 Object 제거.

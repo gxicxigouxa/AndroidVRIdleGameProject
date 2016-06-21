@@ -12,7 +12,7 @@ public class ObjectGenerator : MonoBehaviour
     public GameObject boss_object;
     private GameObject Boss;
     //Object가 생성되는 주기.
-    private static float generate_delay_ = 1.0F;
+    private static float generate_delay_ = 1.5F;
     //Object의 크기 증가에 대한 count.
     private static int object_scale_count_ = 0;
     private float current_generate_delay_ = generate_delay_;
@@ -31,7 +31,7 @@ public class ObjectGenerator : MonoBehaviour
 
         if (current_generate_delay_ <= 0)
         {
-            Debug.Log(BossObject.appearScore);
+            //Debug.Log(BossObject.appearScore);
             if (BossObject.appearScore < MainObjectScript.totalScore)
             {
                 isInBoss = true;

@@ -94,6 +94,12 @@
      <Compile Include="Assets\Game\UI\Button\Menu\MenuButtonScript.cs" />
      <Compile Include="Assets\Game\UI\Button\Message\MessageButtonScript.cs" />
      <Compile Include="Assets\Game\UI\Button\Ranking\RankingButtonScript.cs" />
+     <Compile Include="Assets\Game\UI\Button\Shop\IncreaseDamage.cs" />
+     <Compile Include="Assets\Game\UI\Button\Shop\IncreaseMaximumObject.cs" />
+     <Compile Include="Assets\Game\UI\Button\Shop\IncreaseObjectScale.cs" />
+     <Compile Include="Assets\Game\UI\Button\Shop\IncreaseObtainScore.cs" />
+     <Compile Include="Assets\Game\UI\Button\Shop\ReduceGenerateTime.cs" />
+     <Compile Include="Assets\Game\UI\Button\Shop\RemoveAllObject.cs" />
      <Compile Include="Assets\Game\UI\Button\Shop\ShopButtonsScript.cs" />
      <Compile Include="Assets\Game\UI\CanvasScript.cs" />
      <Compile Include="Assets\Game\mysql\MySqlCon.cs" />

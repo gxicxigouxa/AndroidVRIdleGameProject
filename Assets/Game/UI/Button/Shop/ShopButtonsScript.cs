@@ -8,13 +8,13 @@ using System.Collections;
 //TODO.
 public class ShopButtonsScript : MonoBehaviour {
   public GameObject menu_canvas, shop_canvas, message_canvas;
-  //각종 Item의 구매 비용.
-  private int price_of_increase_obtain_score_ = 1;
-  private int price_of_increase_maximum_object_ = 1;
-  private int price_of_increase_damage_ = 1;
-  private int price_of_reduce_generate_time_ = 1;
-  private int price_of_increase_object_scale_ = 1;
-  private int price_of_remove_all_objects_ = 1;
+    //각종 Item의 구매 비용.
+    public static int price_of_increase_obtain_score_ = 1;
+    public static int price_of_increase_maximum_object_ = 1;
+    public static int price_of_increase_damage_ = 1;
+    public static int price_of_reduce_generate_time_ = 1;
+    public static int price_of_increase_object_scale_ = 1;
+    public static int price_of_remove_all_objects_ = 1;
 	// Use this for initialization
 	void Start () {
 	
@@ -22,8 +22,13 @@ public class ShopButtonsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        price_of_increase_obtain_score_ = MainObjectScript.UnitScore * 2 ;
+        price_of_increase_maximum_object_ = 100 * ( MainObjectScript.MaxObject - 5 );
+        price_of_increase_damage_ = 100 * BossObject.appearCount * BossObject.appearCount;
+        price_of_reduce_generate_time_ = 1600 - (int)(ObjectGenerator.GenerateDelay * 1000) ;
+        price_of_increase_object_scale_ = (ObjectGenerator.ObjectScaleCount + 1 ) * 100;
+        price_of_remove_all_objects_ = MainObjectScript.ObjectCount * ( MainObjectScript.UnitScore - 1 );
+    }
 
   //Object에 따른 단위 점수 1 상승.
   public void IncreaseObtainScore() {
@@ -75,7 +80,7 @@ public class ShopButtonsScript : MonoBehaviour {
     Vibration.Vibrate(100L);
     if (IsCanPurchase(price_of_reduce_generate_time_)) {
       MainObjectScript.Score -= price_of_reduce_generate_time_;
-      ObjectGenerator.GenerateDelay -= 0.01F;
+      ObjectGenerator.GenerateDelay -= 0.02F;
     } else {
       message_canvas.SetActive(!message_canvas.activeSelf);
       shop_canvas.SetActive(!shop_canvas.activeSelf);

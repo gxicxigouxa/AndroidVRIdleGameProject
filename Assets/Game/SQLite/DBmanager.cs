@@ -46,7 +46,7 @@ public class DBmanager : MonoBehaviour
 
             using (IDbCommand dbCmd = dbConnection.CreateCommand())
             {
-                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER, bossCount INTEGER, totalScore INTEGER,userid INTEGER)";
+                string query = "CREATE TABLE IF NOT EXISTS  main.infomation (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, score INTEGER, unitScore INTEGER, maxObject INTEGER, generateDelay FLOAT, damage FLOAT, scale INTEGER, day INTEGER, hour INTEGER, minute INTEGER, second INTEGER, bossCount INTEGER, totalScore INTEGER, userid INTEGER)";
 
                 dbCmd.CommandText = query;
                 dbCmd.ExecuteNonQuery();
