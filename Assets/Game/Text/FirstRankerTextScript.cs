@@ -15,6 +15,6 @@ public class FirstRankerTextScript : MonoBehaviour {
 	}
     public void TextUpdate()
     {
-        GetComponent<Text>().text = "서버에 등록한 1위의 점수 " + MySqlCon.FirstScore+"점";
+        GetComponent<Text>().text = "서버에 등록한 1위의 점수 " + RankingButtonScript.FirstScore+"점";
     }
 }

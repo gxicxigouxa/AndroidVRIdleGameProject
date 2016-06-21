@@ -64,27 +64,48 @@ public class MainObjectScript : MonoBehaviour {
       max_helth_point_ = value;
     }
   }
-    public static int UserID
-    {
-        get
-        {
-            return id_;
-        }
-        set
-        {
-            id_ = value;
-        }
-    }
-    public static int Rank
-    {
-        get
-        {
-            return rank_;
-        }
-        set
-        {
-            rank_ = value;
-        }
+    public static int UserID
+
+    {
+
+        get
+
+        {
+
+            return id_;
+
+        }
+
+        set
+
+        {
+
+            id_ = value;
+
+        }
+
+    }
+
+    public static int Rank
+
+    {
+
+        get
+
+        {
+
+            return rank_;
+
+        }
+
+        set
+
+        {
+
+            rank_ = value;
+
+        }
+
     }
     public static long Score {
     get {

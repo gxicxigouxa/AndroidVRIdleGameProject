@@ -1,0 +1,177 @@
+﻿
+using System;
+using System.Data;
+using UnityEngine;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+
+
+
+public class MySqlCon : MonoBehaviour
+{
+    /*
+    public struct tuple
+    {
+        public int id;
+        public int score;
+        public tuple(int a, int b)
+        {
+            id = a; score = b;
+        }
+    }*/
+    void Start() // 프로그램이 실행될때 루틴을 한번 실행.
+    {
+        startroutine(MainObjectScript.UserID,MainObjectScript.Score);
+    }
+    void Update()
+    {
+
+    }
+    private static void Awake() // 컨넥트 스트링 설정해서 연결을 open
+    {
+        string connStr = "server=110.46.227.154;user=useful;password=Useful_pwd;database=term_project;port=3306;";
+        conn = new MySqlConnection(connStr);
+        try
+        {
+            conn.Open();
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+    private static void OnApplicationQuit() // 연결을 close
+    {
+        if(conn!= null)
+        {
+            if (conn.State.ToString() != "Closed")
+                conn.Close();
+            conn.Dispose();
+        }
+    }
+    private static int sendInform(int id, long score)//현재 아이디와 점수를 보내서, 점수가 높으면 갱신한다. 만들고 보니 딱히 int로 할 필요는 없는것같다.
+    {
+        string sql = "SELECT * FROM score_table WHERE id=" + id + "";
+
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+        /*  //이 부분은 밑에서 getID()부분으로 구현
+        if (rdr.Read() == false)
+        {
+            sql = "INSERT INTO score_table VALUES('" + nickname + "'," + score + ")";
+            cmd = new MySqlCommand(sql, conn);
+        }
+        else*/
+        rdr.Read();
+        int temp = Convert.ToInt32(rdr[1]);
+        rdr.Close();
+        if (temp<score)//score가 db에 있는것보다 높아졌다.
+        {
+            sql = "UPDATE score_table set score=" + score + " WHERE id=" + id;
+            cmd = new MySqlCommand(sql, conn);
+            cmd.ExecuteNonQuery();
+            return 1;//yes update
+        }
+
+        return 0;//no update
+    }
+    /* // 이 부분은 기기별 식별자를 db상황을 보고 정하도록 바꿈
+    public int sendNickname(string nickname)
+    {
+        string sql = "SELECT id FROM score_table WHERE id='" + nickname + "'";
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+        if (rdr.HasRows)
+        {
+            return 0;
+        }
+        else
+        {
+            sql = "INSERT INTO score_table VALUES('" + nickname + "',0)";
+            cmd = new MySqlCommand(sql, conn);
+            return 1;
+        }
+    }
+    */
+    private static int getID()//id가 없을 경우, id를 받아온다. db에서 순차적으로 배정함. 그리고 배정했으면 db에 추가
+    {
+        string sql = "SELECT COUNT(*) FROM score_table";
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        object result = cmd.ExecuteScalar();
+        int r = Convert.ToInt32(result);
+
+        sql = "INSERT INTO score_table VALUES(" + (r+1) + ",0)";
+        cmd = new MySqlCommand(sql, conn);
+        cmd.ExecuteNonQuery();
+        return r+1;
+    }
+    private static int getmyrank(int id)//id에 대한 순위 값을 받아 온다,
+    {
+        int rank;
+        string sql = "SELECT (SELECT COUNT(*)+1 FROM score_table WHERE score>t.score) AS rank FROM score_table AS t WHERE ID="+id+" ORDER BY rank asc";
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+        rdr.Read();
+        rank = Convert.ToInt32(rdr[0]);
+        myscore = MainObjectScript.Score;
+        rdr.Close();
+        return rank;
+    }
+    public static int get1stscore()//1위의 점수 값을 받아 온다,
+    {
+        int score;
+        string sql = "SELECT score,(SELECT COUNT(*)+1 FROM score_table WHERE score>t.score) AS rank FROM score_table AS t WHERE (SELECT COUNT(*)+1 FROM score_table WHERE score>t.score)=1 ORDER BY rank asc";
+        MySqlCommand cmd = new MySqlCommand(sql, conn);
+        MySqlDataReader rdr = cmd.ExecuteReader();
+        rdr.Read();
+        score = Convert.ToInt32(rdr[0]);
+        rdr.Close();
+        return score;
+    }
+    public static int startroutine(int id,long score)//오픈하고 아이디 확인해서 받던가 하고 점수 갱신 확인하고 1위 점수랑 순위 받아옴.
+    {
+        conn = null;
+        int _id = id;
+        Awake();
+        if (_id == 0)
+        {
+            _id=getID();
+            MainObjectScript.UserID = _id;
+            DBmanager.storeUserID();
+        }
+        int a=sendInform(_id, score);
+        MainObjectScript.Rank= getmyrank(_id);
+        firstscore = get1stscore();
+        OnApplicationQuit();
+        return a;
+
+    }
+
+    private static MySqlConnection conn = null;
+    //public tuple myrank = new tuple(0, 0);
+    private static int firstscore = 0;
+    private static long myscore = 0;
+    public static int FirstScore
+    {
+        get
+        {
+            return firstscore;
+        }
+        set
+        {
+            firstscore = value;
+        }
+    }
+    public static long MyScore
+    {
+        get
+        {
+            return myscore;
+        }
+        set
+        {
+            myscore = value;
+        }
+    }
+}
+

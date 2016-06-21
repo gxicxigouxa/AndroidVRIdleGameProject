@@ -15,6 +15,6 @@ public class MyRankTextScript : MonoBehaviour {
     }
     public void TextUpdate()
     {
-        GetComponent<Text>().text = "현재 나의 순위/점수\n" + MainObjectScript.Rank + "위/"+MySqlCon.MyScore+"점";
+        GetComponent<Text>().text = "현재 나의 순위/점수\n" + MainObjectScript.Rank + "위/"+ RankingButtonScript.MyScore+"점";
     }
 }
