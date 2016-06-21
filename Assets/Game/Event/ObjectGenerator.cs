@@ -31,8 +31,8 @@ public class ObjectGenerator : MonoBehaviour
 
         if (current_generate_delay_ <= 0)
         {
-            //Debug.Log(BossObject.appearScore);
-            if (BossObject.appearScore < MainObjectScript.Score)
+            Debug.Log(BossObject.appearScore);
+            if (BossObject.appearScore < MainObjectScript.totalScore)
             {
                 isInBoss = true;
             }
