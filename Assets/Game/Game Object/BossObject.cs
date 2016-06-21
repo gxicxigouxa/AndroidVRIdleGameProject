@@ -25,6 +25,7 @@ public class BossObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         appearScore = 100 * appearCount * appearCount;
+        score = MainObjectScript.UnitScore * 7;
         if (is_under_attack_) {
       DecreaseHelthPoint(ObjectRemover.Damage);
       ChangeColorScript.ChangeColorByHelthPoint(gameObject, max_helth_point_, current_helth_point_, is_boss_object : true);

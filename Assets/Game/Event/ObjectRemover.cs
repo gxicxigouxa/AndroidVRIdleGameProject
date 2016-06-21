@@ -69,6 +69,7 @@ public class ObjectRemover : MonoBehaviour, ICardboardGazeResponder
         }
         MainObjectScript.ObjectCount = 0;
         MainObjectScript.Score += MainObjectScript.UnitScore * number_of_object;
+        MainObjectScript.totalScore += MainObjectScript.UnitScore * (int) number_of_object;
         MainObjectScript.GameObjects.Clear();
     }
 
