@@ -30,8 +30,6 @@ public class MainObjectScript : MonoBehaviour {
   public float current_helth_point_;
   //Object의 체력이 전부 떨어졌는지 판단.
   private bool is_under_attack_ = false;
-  //Object의 체력을 나타낼 체력 게이지.
-  public Slider helth_bar_slider;
 
   public static int totalScore = 0;
   // Use this for initialization
